@@ -505,7 +505,7 @@ txt:
 
       <p class="cli_srv">client &rarr; server</p>
 
-      <pre><code>POST /reverse
+      <pre><code>POST /reverse HTTP/1.1
 Upgrade: PTTH/1.0
 Connection: Upgrade
 X-Apple-Purpose: event
@@ -2357,6 +2357,21 @@ Active-Remote: 1986535575
 Server: AirTunes/130.14
 CSeq: 8
 </code></pre>
+
+      <h4>&lt;DMAP DATA&gt;</h4>
+      <p>A valid example of DMAP data is:</p>
+      <pre><code>0x00000000  6d 6c 69 74 00 00 00 2b 6d 69 6e 6d 00 00 00 08  mlit...+minm....
+0x00000010  49 54 45 4d 4e 41 4d 45 61 73 61 72 00 00 00 06  ITEMNAMEasar....
+0x00000020  41 52 54 49 53 54 61 73 61 6c 00 00 00 05 41 4c  ARTISTasal....AL
+0x00000030  42 55 4d                                         BUM
+</code></pre>
+      <p>where:</p>
+<ul>
+<li>"mlit" = big endian unsigned 4 byte int total message length - 8</li>
+<li>"minm" = big endian unsigned 4 byte int string length, item name string</li>
+<li>"asar" = big endian unsigned 4 byte int string length, artist name string</li>
+<li>"asal" = big endian unsigned 4 byte int string length, album name string</li>
+</uL>
 
       <h3>Cover Artwork</h3>
 
